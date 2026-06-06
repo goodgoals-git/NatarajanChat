@@ -52,21 +52,17 @@ const ChatPage = () => {
     try {
       // 1. Sync with backend to get categorization/path updates and save history
       const syncResponse = await chatApi.syncThread(threadId, newMessages, input);
-      alert('DEBUG DATA [1780777351]: ' + JSON.stringify(syncResponse.data));
-      
-      
+      console.log('Sync Response Data:', syncResponse.data);
 
       // 2. Simulate AI response (In a real scenario, this might come from another endpoint or the sync response)
       // Since the backend provided is a "gateway", we simulate the assistant logic if not explicitly provided
       setTimeout(() => {
         const aiMessage = {
-
-console.log('Sync Response Data:', syncResponse.data);
-
           role: 'assistant',
           content: `I have processed your request within the ${syncResponse.data.thread?.groupName || 'unknown'} cluster. Analysis complete. Protocol synchronized.`,
           timestamp: new Date().toISOString()
         };
+
         const finalMessages = [...newMessages, aiMessage];
         setMessages(finalMessages);
 
