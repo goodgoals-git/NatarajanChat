@@ -23,10 +23,28 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Build
-        run: npm run build
+      - name: Type check
+        run: |
+          if [ -f tsconfig.json ]; then
+            echo "tsconfig.json found — running TypeScript type check"
+            npx tsc --noEmit
+          else
+            echo "No tsconfig.json found — skipping type check"
+          fi
+
+      - name: Lint
+        run: |
+          if [ -f package.json ] && grep -q "\"eslint\"" package.json; then
+            echo "eslint found in package.json — running lint"
+            npx eslint . --ext .js,.jsx,.ts,.tsx
+          else
+            echo "ESLint not configured in package.json — skipping lint"
+          fi
+
+      - name: Build (verbose)
+        run: VITE_DEBUG=true npx vite build --debug
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
