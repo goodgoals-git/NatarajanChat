@@ -52,7 +52,8 @@ const ChatPage = () => {
     try {
       // 1. Sync with backend to get categorization/path updates and save history
       const syncResponse = await chatApi.syncThread(threadId, newMessages, input);
-      alert('DEBUG DATA [1780777174]: ' + JSON.stringify(syncResponse.data));
+      alert('DEBUG DATA [1780777351]: ' + JSON.stringify(syncResponse.data));
+      
       
 
       // 2. Simulate AI response (In a real scenario, this might come from another endpoint or the sync response)
