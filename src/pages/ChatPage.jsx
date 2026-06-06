@@ -57,6 +57,9 @@ const ChatPage = () => {
       // Since the backend provided is a "gateway", we simulate the assistant logic if not explicitly provided
       setTimeout(() => {
         const aiMessage = {
+
+console.log('Sync Response Data:', syncResponse.data);
+
           role: 'assistant',
           content: `I have processed your request within the ${syncResponse.data.thread.groupName} cluster. Analysis complete. Protocol synchronized.`,
           timestamp: new Date().toISOString()
