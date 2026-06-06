@@ -44,12 +44,8 @@ const LoginPage = () => {
         className="w-full max-w-md glass-panel p-8 rounded-3xl relative z-10"
       >
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold gradient-text mb-2 tracking-tight">
-            NatarajanAI
-          </h1>
-          <p className="text-zinc-400 text-sm">
-            {isLogin ? 'Welcome back to the future of intelligence.' : 'Create your secure account to begin.'}
-          </p>
+          <h1 className="text-4xl font-bold gradient-text mb-2 tracking-tight">NatarajanAI</h1>
+          <p className="text-zinc-400 text-sm">{isLogin ? 'Welcome back to the future of intelligence.' : 'Create your secure account to begin.'}</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -60,7 +56,7 @@ const LoginPage = () => {
               <input
                 type="email"
                 required
-                className="w-full bg-background/50 border border-border rounded-xl py-3 pl-10 pr-4 outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all placeholder:text-zinc-600"
+                className="w-full bg-background/50 border border-border rounded-xl py-3 pl-10 pr-4 outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all placeholder:text-zinc-500"
                 placeholder="natarajan@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -75,7 +71,7 @@ const LoginPage = () => {
               <input
                 type="password"
                 required
-                className="w-full bg-background/50 border border-border rounded-xl py-3 pl-10 pr-4 outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all placeholder:text-zinc-600"
+                className="w-full bg-background/50 border border-border rounded-xl py-3 pl-10 pr-4 outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all placeholder:text-zinc-500"
                 placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -96,7 +92,7 @@ const LoginPage = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-primary hover:bg-primary/90 text-white rounded-xl py-3 font-semibold transition-all flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed mt-6 shadow-lg shadow-primary/20"
+            className="w-full bg-primary hover:bg-primary/90 text-white rounded-xl py-3 font-semibold transition-all flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isLoading ? (
               <Loader2 className="w-5 h-5 animate-spin" />
@@ -110,14 +106,9 @@ const LoginPage = () => {
         </form>
 
         <div className="mt-8 text-center">
-          <button
-            onClick={() => setIsLogin(!isLogin)}
-            className="text-sm text-zinc-500 hover:text-white transition-colors"
-          >
-            {isLogin ? "Don't have an account? " : "Already have an account? "}
-            <span className="text-primary font-semibold underline underline-offset-4 decoration-primary/30">
-              {isLogin ? 'Sign up' : 'Log in'}
-            </span>
+          <button onClick={() => setIsLogin(!isLogin)} className="text-sm text-zinc-500 hover:text-white transition-colors">
+            {isLogin ? "Don't have an account? " : 'Already have an account? '}
+            <span className="text-primary font-semibold underline underline-offset-4 decoration-primary/30">{isLogin ? 'Sign up' : 'Log in'}</span>
           </button>
         </div>
       </motion.div>
