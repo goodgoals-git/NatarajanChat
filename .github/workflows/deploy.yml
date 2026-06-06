@@ -24,7 +24,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Pointing to the 'frontend' folder where index.html resides
-          path: './frontend/'
+          path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
